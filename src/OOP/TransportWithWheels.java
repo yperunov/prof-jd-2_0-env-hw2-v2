@@ -2,11 +2,11 @@ package OOP;
 
 import java.util.Objects;
 
-public class Transport {
+public abstract class TransportWithWheels implements TransportServiceInterface {
     private String modelName;
     private int wheelsCount;
 
-    public Transport(String modelName, int wheelsCount) {
+    public TransportWithWheels(String modelName, int wheelsCount) {
         this.modelName = modelName;
         this.wheelsCount = wheelsCount;
     }
@@ -31,7 +31,7 @@ public class Transport {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport transport = (Transport) o;
+        TransportWithWheels transport = (TransportWithWheels) o;
         return wheelsCount == transport.wheelsCount && modelName.equals(transport.modelName);
     }
 
@@ -48,6 +48,14 @@ public class Transport {
                 '}';
     }
 
+    public void updateTyre() {
+        System.out.println("Меняем покрышку");
+    }
 
-
+//    public void service() {
+//        System.out.println("Обслуживаем " + getModelName());
+//        for (int i = 0; i < getWheelsCount(); i++) {
+//            updateTyre();
+//        }
+//    }
 }
